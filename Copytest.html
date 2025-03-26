@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Transition Effect</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: white;
+            border-bottom: 1px solid #eaeaea;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .menu-icon {
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #6c5ce7;
+        }
+
+        .sign-in {
+            padding: 0.5rem 1rem;
+            background-color: white;
+            border: 1px solid #eaeaea;
+            border-radius: 2rem;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .sign-in:hover {
+            background-color: #6c5ce7;
+            color: white;
+            border-color: #6c5ce7;
+        }
+
+        /* Hero section */
+        .hero {
+            height: 80vh;
+            background-color: #6c5ce7;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem;
+            color: white;
+            z-index: 1;
+        }
+
+        .hero-text {
+            max-width: 50%;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 2rem;
+        }
+
+        .hero-image {
+            position: absolute;
+            right: 0;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .hero-title {
+            font-size: 5rem;
+            font-weight: bold;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+
+        /* Cards Grid */
+        .section-title {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+
+        .cards-container {
+            padding: 2rem;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: #6c5ce7;
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1rem;
+            color: white;
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+
+        /* Transition Effect */
+        .transition-container {
+            position: relative;
+        }
+
+        .btn-toggle {
+            position: fixed;
+            left: 20px;
+            top: 50%;
+            z-index: 1000;
+            cursor: pointer;
+            font-size: 2rem;
+            background: none;
+            border: none;
+        }
+
+        /* States */
+        .state-hero .hero {
+            height: 80vh;
+        }
+
+        .state-hero .cards-container {
+            display: none;
+        }
+
+        .state-cards .hero {
+            height: 0;
+            opacity: 0;
+        }
+
+        .state-cards .cards-container {
+            display: block;
+        }
+
+        /* NEW STYLES FOR ADDED SECTIONS */
+        
+        /* Feature Section */
+        .features-section {
+            padding: 5rem 2rem;
+            background-color: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #6c5ce7;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .feature-description {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 5rem 2rem;
+            background-color: #f9f9f9;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 250px;
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 0.5rem;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item.large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 5rem 2rem;
+            background-color: #6c5ce7;
+            color: white;
+        }
+
+        .testimonials-container {
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        .testimonial {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .testimonial-text {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 1rem;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .author-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .author-title {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 2rem;
+            text-align: center;
+            background-color: white;
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-description {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin: 2rem 0;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .btn-primary {
+            padding: 1rem 2rem;
+            background-color: #6c5ce7;
+            color: white;
+            border: none;
+            border-radius: 0.3rem;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #5649c0;
+        }
+
+        .btn-secondary {
+            padding: 1rem 2rem;
+            background-color: transparent;
+            color: #6c5ce7;
+            border: 2px solid #6c5ce7;
+            border-radius: 0.3rem;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background-color: #6c5ce7;
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #222;
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .footer-description {
+            color: #aaa;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: #6c5ce7;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 2rem;
+            text-align: center;
+            color: #aaa;
+            font-size: 0.8rem;
+        }
+
+        /* Media Query for Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .cards-grid, .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="menu-icon">☰</div>
+        <div class="nav-links">
+            <a href="#">PROJECT</a>
+            <a href="#">THE KEEP</a>
+            <a href="#">FACTIONS</a>
+            <a href="#">THE WORLD</a>
+        </div>
+        <button class="sign-in">SIGN IN</button>
+    </div>
+
+    <button class="btn-toggle" onclick="toggleState()">⊕</button>
+
+    <div class="transition-container state-hero" id="container">
+        <div class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <p>Design is more than creation—it's storytelling, a canvas of endless possibilities. Every line, every shade, every composition shapes an untold narrative.</p>
+                </div>
+                <h1 class="hero-title">CRAFT.<br>INNOVATE.<br>INSPIRE.</h1>
+            </div>
+            <img src="Media/2wbpg.jpg" alt="Hero character" class="hero-image">
+        </div>
+
+        <div class="cards-container">
+            <h2 class="section-title">A FAMILIAR WORLD...<br>WITHIN THE MINDS.</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <img src="Media\DUSK's Solace.jpg" alt="Card image">
+                    <div class="card-content">
+                        <p>Isolated within the New Eden safe zone, you witness humanity struggling to avoid descending into chaos.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Media\solitude.jpg" alt="Card image">
+                </div>
+                <div class="card">
+                    <img src="Media/mirage.jpg" alt="Card image">
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- FEATURE SECTION -->
+    <section class="features-section">
+        <h2 class="section-title">DISCOVER THE FEATURES</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">✧</div>
+                <h3 class="feature-title">Immersive Experience</h3>
+                <p class="feature-description">Dive into a world where reality and imagination blur, creating an unforgettable journey through the human psyche.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⊕</div>
+                <h3 class="feature-title">Strategic Gameplay</h3>
+                <p class="feature-description">Every decision shapes your path in this complex ecosystem of factions, alliances, and conflicts within the New Eden.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⊗</div>
+                <h3 class="feature-title">Unique Progression</h3>
+                <p class="feature-description">Evolve your character through specialized skill trees and unlock abilities that transform your approach to challenges.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section class="gallery-section">
+        <h2 class="section-title">VISUAL JOURNEY</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item large">
+                <img src="Media/DUSK's Solace.jpg" alt="Gallery image">
+            </div>
+            <div class="gallery-item">
+                <img src="Media/solitude.jpg" alt="Gallery image">
+            </div>
+            <div class="gallery-item">
+                <img src="Media/mirage.jpg" alt="Gallery image">
+            </div>
+            <div class="gallery-item">
+                <img src="Media/DUSK's Solace.jpg" alt="Gallery image">
+            </div>
+            <div class="gallery-item">
+                <img src="Media/solitude.jpg" alt="Gallery image">
+            </div>
+            <div class="gallery-item large">
+                <img src="Media/mirage.jpg" alt="Gallery image">
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials-section">
+        <h2 class="section-title">WHAT PEOPLE SAY</h2>
+        <div class="testimonials-container">
+            <div class="testimonial">
+                <p class="testimonial-text">"This project completely transformed my understanding of interactive storytelling. Each element feels purposeful and the world-building is unparalleled."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar"></div>
+                    <div>
+                        <div class="author-name">Alex Morgan</div>
+                        <div class="author-title">Design Director</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <p class="testimonial-text">"The attention to detail in both the visuals and narrative creates an immersive experience that stays with you long after you've logged off."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar"></div>
+                    <div>
+                        <div class="author-name">Sarah Chen</div>
+                        <div class="author-title">Creative Strategist</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 class="section-title">JOIN THE JOURNEY</h2>
+            <p class="cta-description">Become part of this evolving narrative where your choices shape the future of New Eden. Register today and receive exclusive access to limited-edition content.</p>
+            <div class="cta-buttons">
+                <button class="btn-primary">GET STARTED</button>
+                <button class="btn-secondary">LEARN MORE</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-column">
+                <div class="footer-logo">THE KEEP</div>
+                <p class="footer-description">A revolutionary interactive experience redefining boundaries between reality and imagination.</p>
+                <div class="social-icons">
+                    <div class="social-icon">f</div>
+                    <div class="social-icon">t</div>
+                    <div class="social-icon">in</div>
+                    <div class="social-icon">ig</div>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Explore</h3>
+                <ul class="footer-links">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Factions</a></li>
+                    <li><a href="#">Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Community</a></li>
+                    <li><a href="#">Updates</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Legal</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Licenses</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 The Keep. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleState() {
+            const container = document.getElementById('container');
+            container.classList.toggle('state-hero');
+            container.classList.toggle('state-cards');
+        }
+    </script>
+</body>
+</html>

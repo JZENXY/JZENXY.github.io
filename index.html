@@ -794,10 +794,11 @@
                 </div>
                 <div class="testimonial reveal">
                     <p class="testimonial-text">Send me a message and I'll get back to you as soon as possible.</p>
-                    <form id="contact-form" action="https://formspree.io/f/xanowwno" method="POST">
+                    <form action="https://formspree.io/f/xanowwno" method="POST">
                         <input type="text" name="name" placeholder="Your Name" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: none;" required>
-                        <input type="email" name="email" placeholder="Your Email" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: none;" required>
+                        <input type="email" name="_replyto" placeholder="Your Email" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: none;" required>
                         <textarea name="message" placeholder="Your Message" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: none; min-height: 100px;" required></textarea>
+                        <input type="hidden" name="_subject" value="New contact from Portfolio Website">
                         <button type="submit" class="btn-primary" style="background-color: white; color: #6c5ce7;">Send Message</button>
                     </form>
                 </div>

@@ -1,0 +1,48 @@
+/* Image Sequence for My Work Section */
+.image-sequence {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin-top: 3rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    scrollbar-width: thin;
+}
+.work-image {
+    height: 200px; /* Larger thumbnail size */
+    width: auto;
+    border-radius: 1rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    transition: transform 0.3s, z-index 0.3s;
+    background: white;
+    flex-shrink: 0;
+
+    cursor: pointer;
+    z-index: 1;
+}
+.work-image:hover {
+    transform: scale(2.8) translateY(-30px);
+    z-index: 10;
+}
+
+
+@media (max-width: 768px) {
+    .image-sequence {
+        flex-direction: column;
+        gap: 1rem;
+        overflow-x: unset;
+        overflow-y: auto;
+    }
+    .work-image {
+        width: 100%;
+        height: auto;
+        max-height: 300px;
+        max-width: 100%;
+        border-radius: 0.5rem;
+    }
+    .work-image:hover {
+        transform: scale(1.2);
+        z-index: 10;
+    }
+}
+

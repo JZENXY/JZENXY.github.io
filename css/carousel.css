@@ -1,10 +1,19 @@
 /* Carousel Wrapper and Track for My Work Section */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
 .carousel-wrapper {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  margin-top: 3rem;
-  scrollbar-width: none;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-top: 3rem;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
 .carousel-wrapper::-webkit-scrollbar {
   display: none;
 }
@@ -95,6 +104,60 @@
     will-change: transform;
     padding: 2rem 3rem 3rem;
     justify-content: center;
+}
+
+/* Navigation buttons */
+.carousel-nav {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: 20;
+}
+
+.carousel-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    pointer-events: auto;
+    margin: 0 1rem;
+}
+
+.carousel-button:hover {
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transform: scale(1.1);
+}
+
+.carousel-button svg {
+    width: 24px;
+    height: 24px;
+    fill: #333;
+}
+
+.carousel-button.prev {
+    left: 0;
+}
+
+.carousel-button.next {
+    right: 0;
+}
+
+/* Mobile view adjustments */
+.mobile-view .carousel-nav {
+    display: none;
 }
 
 /* Duplicate images for infinite loop effect */

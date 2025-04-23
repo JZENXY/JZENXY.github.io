@@ -769,27 +769,27 @@
     <div class="cards-container" id="cards-container">
         <h2 class="section-title reveal">My Creative Design Work</h2>
         <div class="cards-grid">
-            <div class="card reveal">
-                <img src="Media/solitude.jpg" alt="Project 1">
+            <a href="graphic-designs.html" class="card reveal">
+                <img src="Media/photography poster 1.jpg" alt="Project 1">
                 <div class="card-content">
                     <h3>Personal projects</h3>
                     <p>Branding / Visual Design</p>
                 </div>
-            </div>
-            <div class="card reveal">
+            </a>
+            <a href="uiux-designs.html" class="card reveal">
                 <img src="Media/mirage.jpg" alt="Project 2">
                 <div class="card-content">
                     <h3>UI/UX Design</h3>
                     <p>Web / Mobile</p>
                 </div>
-            </div>
-            <div class="card reveal">
-                <img src="Media/photography poster 1.jpg" alt="Project 3">
+            </a>
+            <a href="thumbnails.html" class="card reveal">
+                <img src="Media/sdv2.jpg" alt="Project 3">
                 <div class="card-content">
-                    <h3>Cover design</h3>
-                    <p>Web Design / Development</p>
+                    <h3>Thumbnail design</h3>
+                    <p>Social Media and Development</p>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
 
@@ -802,11 +802,13 @@
                 <h3 class="feature-title">Graphics Design</h3>
                 <p class="feature-description">Designing visually stunning graphics that captivate eyes and leave a lasting impression.</p>
             </div>
-            <div class="feature-card reveal">
-                <div class="feature-icon"><i class="fas fa-laptop-code"></i></div>
-                <h3 class="feature-title">UI/UX Design</h3>
-                <p class="feature-description">Creating intuitive, responsive, and visually appealing interfaces that enhance user experience across platforms.</p>
-            </div>
+            <a href="uiux-designs.html" style="text-decoration: none; color: inherit;">
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3 class="feature-title">UI/UX Design</h3>
+                    <p class="feature-description">Creating intuitive, responsive, and visually appealing interfaces that enhance user experience across platforms.</p>
+                </div>
+            </a>
             <div class="feature-card reveal">
                 <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
                 <h3 class="feature-title">Video Editing</h3>
@@ -820,12 +822,48 @@
         <h2 class="section-title reveal">My Work</h2>
         <div class="carousel-wrapper">
             <div class="carousel-track">
-                <img src="Media/solitude.jpg" alt="Project 1" class="work-image">
-                <img src="Media/mirage.jpg" alt="Project 2" class="work-image">
-                <img src="Media/photography poster 1.jpg" alt="Project 3" class="work-image">
-                <img src="Media/subnautica.jpg" alt="Project 4" class="work-image">
-                <img src="Media/DUSK's Solace.jpg" alt="Project 5" class="work-image">
-                <img src="Media/Honeypie.jpg" alt="Project 6" class="work-image">
+                <!-- Clone last two items at start for seamless loop -->
+                <a href="graphic-designs.html" class="work-link clone">
+                    <img src="Media/_48.jpg" alt="Project 8" class="work-image">
+                </a>
+                <a href="graphic-designs.html" class="work-link clone">
+                    <img src="Media/1_34.jpg" alt="Project 9" class="work-image">
+                </a>
+                <!-- Original items -->
+                <a href="uiux-designs.html" class="work-link">
+                    <img src="Media/solitude.jpg" alt="Project 1" class="work-image">
+                </a>
+                <a href="uiux-designs.html" class="work-link">
+                    <img src="Media/mirage.jpg" alt="Project 2" class="work-image">
+                </a>
+                <a href="uiux-designs.html" class="work-link">
+                    <img src="Media/photography poster 1.jpg" alt="Project 3" class="work-image">
+                </a>
+                <a href="uiux-designs.html" class="work-link">
+                    <img src="Media/subnautica.jpg" alt="Project 4" class="work-image">
+                </a>
+                <a href="uiux-designs.html" class="work-link">
+                    <img src="Media/DUSK's Solace.jpg" alt="Project 5" class="work-image">
+                </a>
+                <a href="uiux-designs.html" class="work-link">
+                    <img src="Media/Honeypie.jpg" alt="Project 6" class="work-image">
+                </a>
+                <a href="graphic-designs.html" class="work-link">
+                    <img src="Media/50.jpg" alt="Project 7" class="work-image">
+                </a>
+                <a href="graphic-designs.html" class="work-link">
+                    <img src="Media/_48.jpg" alt="Project 8" class="work-image">
+                </a>
+                <a href="graphic-designs.html" class="work-link">
+                    <img src="Media/1_34.jpg" alt="Project 9" class="work-image">
+                </a>
+                <!-- Clone first two items at end for seamless loop -->
+                <a href="uiux-designs.html" class="work-link clone">
+                    <img src="Media/solitude.jpg" alt="Project 1" class="work-image">
+                </a>
+                <a href="uiux-designs.html" class="work-link clone">
+                    <img src="Media/mirage.jpg" alt="Project 2" class="work-image">
+                </a>
             </div>
         </div>
         <!-- Navigation buttons will be added by JavaScript -->
@@ -888,17 +926,30 @@
                         </div>
                     </div>
                 </div>
-                <div class="testimonial reveal">
-                    <p class="testimonial-text">Send me a message and I'll get back to you as soon as possible.</p>
-                    <form action="https://formspree.io/f/xanowwno" method="POST" id="contact-form">
-                        <input type="text" name="name" placeholder="Your Name" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: none;" required>
-                        <input type="email" name="_replyto" placeholder="Your Email" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: none;" required>
-                        <textarea name="message" placeholder="Your Message" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: none; min-height: 100px;" required></textarea>
-                        <input type="hidden" name="_subject" value="New contact from Portfolio Website">
-                        <input type="text" name="_gotcha" style="display: none;">
-                        <button type="submit" class="btn-primary" style="background-color: white; color: #6c5ce7;">Send Message</button>
-                    </form>
-                    <div id="form-status" style="margin-top: 15px; display: none;"></div>
+                <div class="testimonial reveal" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                    <p class="testimonial-text" style="max-width: 500px;">Send me a message and I'll get back to you as soon as possible.</p>
+                    <div style="margin-top: 2rem; display: flex; flex-direction: column; align-items: center;">
+                        <a href="mailto:jaydeepdas863@gmail.com" style="
+                            display: inline-block;
+                            padding: 12px 24px;
+                            background-color: white;
+                            color: #6c5ce7;
+                            text-decoration: none;
+                            border-radius: 5px;
+                            font-weight: 500;
+                            transition: all 0.3s ease;
+                            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                            margin: 0 auto;
+                        " onmouseover="this.style.backgroundColor='#f8f9fa'" 
+                           onmouseout="this.style.backgroundColor='white'"
+                        >
+                            <i class="fas fa-envelope" style="margin-right: 8px;"></i>
+                            Send Email
+                        </a>
+                        <p style="margin-top: 1rem; font-size: 0.9rem; color: #999; max-width: 300px;">
+                            Click to open your email client and send me a message directly
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -950,4 +1001,5 @@
     </footer>
     <script src="scripts.js"></script>
     <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js"></script>
+    <script src="js/browser-detection.js"></script>
 </body>

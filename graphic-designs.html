@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphic Design Portfolio | Jzenxy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+        }
+
+        .header {
+            background-color: #222;
+            padding: 2rem;
+            text-align: center;
+            color: white;
+        }
+
+
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .portfolio-grid {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+
+        .portfolio-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .portfolio-description {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background-color: #f0f0f0;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <a href="index.html" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+            Back
+        </a>
+        <h1>Graphic Design Portfolio</h1>
+        <p>A collection of my creative visual designs and branding work</p>
+    </header>
+
+    <div class="portfolio-grid">
+        <div class="portfolio-item">
+            <img src="Media/photography poster 1.jpg" alt="Personal Project" class="portfolio-image">
+            <div class="portfolio-content">
+                <h3 class="portfolio-title">Personal Projects</h3>
+                <p class="portfolio-description">Creative exploration in branding and visual design, showcasing unique artistic perspectives.</p>
+                <div class="portfolio-tags">
+                    <span class="tag">Branding</span>
+                    <span class="tag">Visual Design</span>
+                    <span class="tag">Typography</span>
+                </div>
+            </div>
+        </div>
+        <div class="portfolio-item">
+            <img src="Media/solitude.jpg" alt="Brand Identity" class="portfolio-image">
+            <div class="portfolio-content">
+                <h3 class="portfolio-title">Brand Identity</h3>
+                <p class="portfolio-description">Comprehensive brand identity design including logos, color schemes, and visual guidelines.</p>
+                <div class="portfolio-tags">
+                    <span class="tag">Logo Design</span>
+                    <span class="tag">Brand Guidelines</span>
+                    <span class="tag">Identity</span>
+                </div>
+            </div>
+        </div>
+        <div class="portfolio-item">
+            <img src="Media/sdv2.jpg" alt="Social Media Design" class="portfolio-image">
+            <div class="portfolio-content">
+                <h3 class="portfolio-title">Social Media Design</h3>
+                <p class="portfolio-description">Eye-catching social media graphics and thumbnail designs optimized for engagement.</p>
+                <div class="portfolio-tags">
+                    <span class="tag">Social Media</span>
+                    <span class="tag">Digital Marketing</span>
+                    <span class="tag">Content Design</span>
+                </div>
+            </div>
+        </div>
+        <div class="portfolio-item">
+            <img src="Media/_37.jpg" alt="Personal Project" class="portfolio-image">
+            <div class="portfolio-content">
+            </div>
+        </div>
+        <div class="portfolio-item">
+            <img src="Media/_49.jpg" alt="Personal Project" class="portfolio-image">
+            <div class="portfolio-content">
+            </div>
+        </div>
+        <div class="portfolio-item">
+            <img src="Media/maxresdefault_3-1.jpg" alt="Personal Project" class="portfolio-image">
+            <div class="portfolio-content">
+            </div>
+        </div>
+        <div class="portfolio-item">
+            <img src="Media/rev4.jpg" alt="Personal Project" class="portfolio-image">
+            <div class="portfolio-content">
+            </div>
+        </div>
+        <div class="portfolio-item">
+            <img src="Media/getting married.jpg" alt="Personal Project" class="portfolio-image">
+            <div class="portfolio-content">
+            </div>
+        </div>
+        <div class="portfolio-item">
+            <img src="Media/fluxfp (1).jpg" alt="Personal Project" class="portfolio-image">
+            <div class="portfolio-content">
+            </div>
+        </div>
+        <div class="portfolio-item">
+            <img src="Media/RESIDENT EVIL 4 part 2.jpg" alt="Personal Project" class="portfolio-image">
+            <div class="portfolio-content">
+            </div>
+        </div>
+        <div class="portfolio-item">
+            <img src="Media/Copy of Overwatch-112 (1).jpg" alt="Personal Project" class="portfolio-image">
+            <div class="portfolio-content">
+            </div>
+        </div>
+        <div class="portfolio-item">
+            <img src="Media/comm 12.jpg" alt="Personal Project" class="portfolio-image">
+            <div class="portfolio-content">
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section class="contact-section" style="
+        padding: 4rem 2rem;
+        background-color: #f8f9fa;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    ">
+        <div style="
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            margin: -4rem auto 0;
+        ">
+            <h2 style="margin-bottom: 2rem; color: #333; font-size: 2rem;">Get in Touch</h2>
+                    <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                        <p style="margin-bottom: 1.5rem; color: #666; max-width: 400px;">I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.</p>
+                        <div style="margin-bottom: 2rem; display: flex; flex-direction: column; align-items: center;">
+                            <div style="font-weight: bold; color: #333; margin-bottom: 0.5rem;">Email</div>
+                            <a href="mailto:jaydeepdas863@gmail.com" style="
+                                display: inline-block;
+                                padding: 12px 24px;
+                                background-color: #6c5ce7;
+                                color: white;
+                                text-decoration: none;
+                                border-radius: 5px;
+                                font-weight: 500;
+                                transition: all 0.3s ease;
+                                margin-top: 1rem;
+                            " onmouseover="this.style.backgroundColor='#5849c4'" 
+                               onmouseout="this.style.backgroundColor='#6c5ce7'"
+                            >
+                                <i class="fas fa-envelope" style="margin-right: 8px;"></i>
+                                Send Email
+                            </a>
+                        </div>
+                        <p style="color: #666; font-size: 0.9rem; max-width: 300px;">
+                            Click the button above to open your email client and send me a message directly.
+                        </p>
+                    </div>
+        </div>
+    </section>
+</body>
+</html>

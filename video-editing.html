@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Editing Portfolio | Jzenxy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+        }
+
+        .header {
+            background-color: #222;
+            padding: 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .video-grid {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .video-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .video-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-thumbnail {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background-color: #000;
+            overflow: hidden;
+        }
+
+        .video-thumbnail img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .play-button i {
+            color: #333;
+            font-size: 24px;
+            margin-left: 4px;
+        }
+
+        .video-content {
+            padding: 1.5rem;
+        }
+
+        .video-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .video-description {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .video-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background-color: #f0f0f0;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+            Back
+        </a>
+        <h1>Video Editing Portfolio</h1>
+        <p>A showcase of my creative video editing and storytelling work</p>
+    </header>
+
+    <div class="video-grid">
+        <div class="video-item">
+            <div class="video-thumbnail">
+                <img src="Media/DUSK's Solace.jpg" alt="Creative Edits">
+                <div class="play-button">
+                    <i class="fas fa-play"></i>
+                </div>
+            </div>
+            <div class="video-content">
+                <h3 class="video-title">Creative Edits</h3>
+                <p class="video-description">Dynamic and engaging video edits that combine creative transitions with compelling storytelling.</p>
+                <div class="video-tags">
+                    <span class="tag">Motion Graphics</span>
+                    <span class="tag">Transitions</span>
+                    <span class="tag">Color Grading</span>
+                </div>
+            </div>
+        </div>
+        <div class="video-item">
+            <div class="video-thumbnail">
+                <img src="Media/Honeypie.jpg" alt="Music Videos">
+                <div class="play-button">
+                    <i class="fas fa-play"></i>
+                </div>
+            </div>
+            <div class="video-content">
+                <h3 class="video-title">Music Videos</h3>
+                <p class="video-description">Rhythmic editing and visual storytelling that enhances the musical experience.</p>
+                <div class="video-tags">
+                    <span class="tag">Music Sync</span>
+                    <span class="tag">Visual Effects</span>
+                    <span class="tag">Storytelling</span>
+                </div>
+            </div>
+        </div>
+        <div class="video-item">
+            <div class="video-thumbnail">
+                <img src="Media/subnautica.jpg" alt="Gaming Content">
+                <div class="play-button">
+                    <i class="fas fa-play"></i>
+                </div>
+            </div>
+            <div class="video-content">
+                <h3 class="video-title">Gaming Content</h3>
+                <p class="video-description">Engaging gaming content with smooth transitions and professional editing.</p>
+                <div class="video-tags">
+                    <span class="tag">Gaming</span>
+                    <span class="tag">Highlights</span>
+                    <span class="tag">Entertainment</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

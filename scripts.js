@@ -1,3 +1,9 @@
+// Disable right-click functionality
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+    return false;
+});
+
 // Page transition elements - Add these to your HTML
 // <div class="page-transition"></div>
 // <div class="section-transition"></div>

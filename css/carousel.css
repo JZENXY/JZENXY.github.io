@@ -1,10 +1,10 @@
-/* Carousel Wrapper and Track for My Work Section */
+/* My Work Carousel - Clean Implementation */
 .carousel-container {
     position: relative;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0;
     overflow: hidden;
 }
 
@@ -13,8 +13,8 @@
     overflow: hidden;
     position: relative;
     margin-top: 3rem;
-    scrollbar-width: none;
-    scroll-behavior: smooth;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer and Edge */
 }
 
 .carousel-wrapper::-webkit-scrollbar {
@@ -23,13 +23,18 @@
 
 .carousel-track {
     display: flex;
-    flex-direction: row;
-    gap: 2rem;
+    gap: 1rem;
+    padding: 1rem;
     will-change: transform;
-    padding: 0 2rem 1rem 0;
 }
 
-/* Modified animation for seamless looping */
+/* Clone container for infinite scrolling */
+.clone-container {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Seamless infinite scroll animation */
 @keyframes infiniteScroll {
     0% {
         transform: translateX(0);
@@ -40,22 +45,139 @@
 }
 
 .carousel-track {
-    /* Make the track twice as wide with duplicated items */
-    width: calc(100% * 2);
+    width: 200%; /* Double width to hold both sets of images */
     display: flex;
-    animation: infiniteScroll 30s linear infinite;
-}
-
-/* Clone the images to create the seamless effect */
-.carousel-track .clone-container {
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-    flex: 1;
+    animation: infiniteScroll 20s linear infinite;
 }
 
 .carousel-track:hover {
     animation-play-state: paused;
+}
+
+/* Work links and images */
+.work-link {
+    flex: 0 0 auto;
+    width: 160px;
+    height: 200px;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.work-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.work-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.work-link:hover .work-image {
+    transform: scale(1.05);
+}
+
+/* Navigation buttons */
+.carousel-nav {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: 20;
+}
+
+.carousel-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    pointer-events: auto;
+    margin: 0 1rem;
+}
+
+.carousel-button:hover {
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transform: scale(1.1);
+}
+
+.carousel-button svg {
+    width: 24px;
+    height: 24px;
+    fill: #333;
+}
+
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+    .carousel-track {
+        animation: none !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        padding: 1rem;
+        transform: none !important;
+        gap: 1.5rem;
+    }
+    
+    .clone-container {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 1.5rem;
+    }
+    
+    /* Hide the second clone container on mobile */
+    .clone-container:nth-child(2) {
+        display: none !important;
+    }
+    
+    .work-link {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16/9;
+        margin-right: 0 !important;
+        margin-bottom: 0.5rem;
+    }
+    
+    .carousel-wrapper {
+        overflow-y: auto;
+        overflow-x: hidden;
+        margin-top: 2rem;
+        height: auto;
+        max-height: 80vh;
+    }
+    
+    .carousel-nav {
+        display: none;
+    }
+    
+    .work-image {
+        height: 100%;
+        max-height: none;
+    }
+}
+
+/* Firefox-specific fixes */
+@-moz-document url-prefix() {
+    .carousel-track {
+        will-change: auto;
+    }
 }
 
 /* Image Sequence for My Work Section */
